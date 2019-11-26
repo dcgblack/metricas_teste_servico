@@ -1,0 +1,15 @@
+import javaposse.jobdsl.plugin.*
+
+node {
+    stage('Clone sources') {
+        git url: "https://github.com/spockframework/spock-example.git"
+    }
+
+    stage('Tests') {
+      sh './gradlew clean test'
+    }
+
+    stage('Index Data') {
+      sh 'echo Data'
+    }
+}
